@@ -1,0 +1,606 @@
+Programación con JavaScript Ed 17
+telefonica educacion digital & Cense
+
+    Antonio martin 
+    coordinador academico
+
+        WEBAPPS 
+            programacion web del lado del cliente
+                permite crear web con contenido interactivo
+                con efectos visuales que faciulitan la intetaccion
+                ejem. gmail
+                el cliente web (el navegador del usuario) interptreta el lenguaje javascript
+            aprendizaje 
+                javsacript 
+                librerias 
+                framework    
+
+        PAGINAS WEB DINAMICAS
+            Creación de páginas web dinámicas
+            Una página web dinámica es una página que 
+            se actualiza conforme el usuario 
+                va haciendo peticiones, 
+                navegando por la página o actualizando su contenido. 
+            Suelen venir cargadas de 
+                alto contenido visual, 
+                opciones para discapacitados o 
+                aprendizaje de las elecciones que ha ido tomando el usuario.
+        PAGINAS WEB ESTATICAS
+            En  contra  a  lo  que  ocurre  con  las  páginas  estáticas,  
+            en  las  que su  contenido  e  información  se  encuentra  predeterminado,  
+            en  las páginas dinámicas la información va apareciendo según el ciclo de 
+            vida del usuario en la aplicación.
+        WEB DINAMICA    
+            Esto  se  hace  posible  porque  una  página  dinámica  tiene  asociada  
+                una aplicación web 
+                o una Base de Datos 
+            desde la que se permite visualizar el contenido.
+            Para la creación de este tipo de páginas deberán utilizarse 
+                etiquetas HTML 
+                y algún lenguaje de programación que se ejecute 
+                    tanto del “lado servidor” como del “lado cliente”.
+            Los  lenguajes  utilizados  para  la  creación  de  este  tipo  de  páginas  
+            son principalmente: 
+                ASP, PHP, JSP, pero, sobre todo, mucho Javascript (JS).
+        frameworsk JAVASCRIPT 
+            Actualmente, Javascript (JS) ha experimentado un avance 
+            sorprendente, debido a la aparición de numerosos frameworks de 
+            desarrollo web basados en su lenguaje. En este manual trataremos 
+            algunos de ellos, como 
+            JQuery o AngularJS.
+        VENTAJAS & desventajas
+            El  proceso  de  actualización  y  creación  es  sumamente  sencillo,  
+            sin necesidad de entrar en el servidor.
+            • Gran número de funcionalidades y desarrollos tales como 
+                bases de datos, 
+                foros, 
+                contenido dinámico, etc.
+            • Facilitan tener actualizada diariamente toda la información.
+            • Diferentes áreas de diferentes empresas pueden participar en la 
+                creación y el mantenimiento.
+            • Dominación total sobre la administración de todos los contenidos.
+
+            1.1 | Ventajas
+            • Contenidos fácilmente reutilizables.
+            • Una mayor interactividad con el usuario.
+            • Presentación de contenidos en 
+                diversos dispositivos y formatos, 
+                como los terminales móviles.
+            • Los autores del contenido no requieren conocimientos técnicos.
+            1.2 | Desventajas
+            • Mayores requerimientos técnicos para su alojamiento en
+                Servidores de pago y, por tanto, costes de alojamiento mayores.    
+            • En algunos casos, un mayor coste de desarrollo que implican
+                mayor cantidad de recursos en el apartado visual de la aplicación.
+            
+        2. El lenguaje JavaScript
+            JavaScript, que no debe confundirse con Java, 
+            fue creado en 10 días en 
+            mayo de 1995 por Brendan Eich, 
+                que entonces trabajaba en Netscape y ahora en Mozilla.
+                JavaScript no siempre fue conocido como JavaScript: 
+                el nombre original era Mocha, un nombre elegido 
+                por Marc Andreessen,fundador de Netscape.
+
+            En septiembre de 1995 el nombre fue cambiado a LiveScript
+            
+            en diciembre del 1995, al recibir una licencia
+                de marca de Sun, se adoptó el nombre de JavaScript. Esto fue un
+                movimiento de marketing en ese momento, con Java que era muy
+                popular en todo entonces.
+            
+            En 1996 - 1997 JavaScript fue llevado a ECMA para labrarse una
+                especificación estándar, que otros proveedores de navegadores
+                entonces podrían implementar basado en el trabajo realizado en
+                Netscape. El trabajo realizado en este período de tiempo finalmente
+                llevó a la liberación oficial de ECMA-262 Ed.1: +
+                
+            ECMAScript es el
+                nombre de la norma oficial, siendo JavaScript la más conocida
+                de las implementaciones. ActionScript 3 es otra aplicación bien
+                conocida de ECMAScript.
+            El proceso de las normas continuó en ciclos, con los lanzamientos de 
+                ECMAScript 2 en 1998 y 
+                ECMAScript 3 en 1999, que es la línea
+                base para el moderno JavaScript. El trabajo dirigido por Waldemar
+                Horwat (entonces de Netscape, ahora en Google) se inició en 2000
+            y en un primer momento, Microsoft parecía a participar (e incluso
+            implementar) algunas de las propuestas en su idioma JScript.net.
+            El próximo evento importante fue en 2005, con dos grandes
+            acontecimientos en la historia de JavaScript. 
+                En primer lugar,
+                    Brendan Eich y Mozilla reincorporaron Ecma como miembro sin
+                    fines de lucro y el trabajo comenzó en E4X, ECMA-357, que venía
+                de ex empleados de Microsoft en BEA (originalmente adquirido
+                como Crossgain). Esto llevó a trabajar en forma conjunta con
+                Macromedia, que estaban implementando E4X en ActionScript 3.
+            Así, junto con Macromedia (posteriormente adquirida por Adobe),
+            el trabajo se reinicia en ECMAScript 4 con el objetivo de estandarizar
+            lo que había en AS3 y aplicarlo en SpiderMonkey. Con este fin,
+            Adobe lanzó el “AVM2”, cuyo nombre en código Tamarin, como un
+            proyecto de código abierto. Pero Tamarin y AS3 eran demasiado
+            diferentes de Web JavaScript para converger, como se dieron
+            cuenta las partes en 2007 y 2008.
+            Por desgracia, todavía había confusión entre los diferentes
+            actores; Doug Crockford - luego a Yahoo! - se unió a Microsoft en
+            2007 para oponerse a ECMAScript 4, lo que le llevó al 3,1 refuerzo
+            de ECMAScript.
+            Mientras todo esto sucedía las comunidades de origen y
+            desarrolladores abiertas se pusieron a trabajar para revolucionar lo
+            que podría hacerse con JavaScript. Este esfuerzo de la comunidad
+            se desató en 2005, 
+            cuando Jesse James Garrett publicó un libro
+            blanco en el que acuñó el término Ajax, y describió un conjunto
+            de tecnologías, de las cuales JavaScript era la columna vertebral,
+            que se utiliza para crear aplicaciones web en las que 
+                los datos pueden ser cargados en el fondo, 
+                evitando la necesidad de cargar la página completa y como resultado: 
+                aplicaciones más dinámicas.
+            Esto dio lugar a un periodo de renacimiento del uso de JavaScript
+            encabezada por bibliotecas de código abierto y las comunidades
+            que se formaron a su alrededor, con las bibliotecas como 
+                Prototype,
+                JQuery,
+                Dojo, 
+                Mootools y otros.
+            En julio de 2008 
+                las partes dispares de ambos lados se reunieron en Oslo. 
+                Esto llevó a la eventual acuerdo a principios de 2009 para
+                cambiar el nombre de ECMAScript 3.1 a ECMAScript 5 e impulsar el
+                lenguaje.
+                Todo esto entonces nos trae a la actualidad, con JavaScript, que
+                ha entrado en un nuevo y emocionante ciclo de evolución, la
+                innovación y la normalización, con nuevos desarrollos como
+                la plataforma nodejs, que nos permite utilizar JavaScript en el
+                lado del servidor, y APIs de HTML5 para controlar los medios
+                de comunicación de los usuarios, se abren sockets web para la
+                comunicación, obtener datos sobre las características de ubicación
+                y disposición geográfica, y más.
+            En el año 2014 y principios del 2015 
+                se considera HTML5 y el nuevo ECMAScript 5 como un estándar para 
+                el desarrollo de aplicaciones web.
+            Es un momento emocionante para aprender JavaScript.
+        2.1 | Pero, ¿qué es javascript?
+            La integración entre JavaScript y HTML es muy fácil y variada, 
+            ya que hay al menos tres maneras para incluir código JavaScript en las páginas web.
+            ESCRIBIR JAVASCRIPT EN EL PROPIO DOCUMENTO HTML
+                Las sentencias JavaScript se encierran entre etiquetas, o tags,
+                <script> y se incluyen en cualquier parte del documento. 
+                Aunque es correcto incluir cualquier bloque de sentencias en
+                cualquier zona del documento, se recomienda definir el bloque de
+                código JavaScript dentro de la cabecera del documento (dentro de la
+                etiqueta <head>)
+
+                Para que la página HTML obtenida sea correcta, es imprescindible
+                    agregar el atributo type a la etiqueta <script>. 
+                    Los valores a los que se iguala el atributo type están estandarizados 
+                    y para el caso de JavaScript, el valor correcto es text/javascript.
+                Este método se emplea cuando se define un bloque pequeño de
+                sentencias o cuando se quieren incluir códigos específicos en un
+                determinado documento.
+                La principal desventaja es el no reutilizamiento ya que si se quiere
+                hacer una modificación en el bloque de código, es necesario modificar
+                todas las páginas que incluyen ese mismo bloque de código
+                JavaScript (que habremos copiado en cada una de las respectivas
+                páginas), por lo que no lo hace reutilizable.
+            DEFINIR JAVASCRIPT EN UN ARCHIVO EXTERNO A NUESTRO DOCUMENTO
+                Las sentencias JavaScript se pueden escribir en un archivo externo
+                de tipo JavaScript (.js) que los documentos HTML enlazan mediante la
+                etiqueta (o tag) <script>.
+                Se pueden enlazar todos los archivos JavaScript que se necesiten
+                y cada documento HTML puede enlazar tantos ficheros JavaScript
+                como utilice.
+                Aparte del atributo type, este método hace imprescindible definir el
+                atributo src, que es el que indica la URL (o dirección) correspondiente
+                al fichero JavaScript que se quiere unir. 
+
+                Cada etiqueta <script> solamente puede unir un único fichero,
+                pero en un mismo documento se pueden incluir tantas etiquetas
+                (o tags) <script> como sean necesarias, lo que hace estos archivos
+                reutilizables.
+                Los ficheros de tipo JavaScript son archivos normales de texto con
+                la extensión .js, que se pueden crear con cualquier editor de texto.
+                La mayor ventaja de enlazar un fichero JavaScript externo es que se
+                simplifica el código HTML del documento, que se puede reutilizar el
+                mismo código JavaScript en todos los documentos del sitio web y
+                que cualquier modificación realizada en el fichero JavaScript se ve
+                reflejada inmediatamente en todas las páginas HTML en los que
+                está importado.
+            INCLUIR JAVASCRIPT DENTRO DE LAS PROPIAS ETIQUETAS HTML
+                Esta última forma es la menos utilizada, ya
+                que consiste en crear bloques de JavaScript
+                dentro del código HTML del documento.
+                La mayor desventaja de esta forma es que
+                ensucia innecesariamente el código HTML
+                del documento y complica el mantenimiento
+                del bloque de código en JavaScript.    
+
+
+                M1 - Prueba teórica
+    A continuación, te proponemos una pequeña prueba de carácter teórico, para que puedas comprobar si has comprendido los diferentes temas tratados durante el módulo.
+    Se recomienda aprobar esta actividad para alcanzar la superación del curso con un 70% de la nota promedio de las pruebas. Dispones de 3 intentos.
+    Para superar este test, has de responder correctamente al menos el 70% de las preguntas.
+    1. ¿Cuál de las siguientes NO es una ventaja de las páginas dinámicas?
+    El proceso de actualización y creación es sumamente sencillo, sin necesidad de entrar en el servidor.
+    Dominación total sobre la administración de todos los contenidos.
+    Presentación de contenidos en diversos dispositivos y formatos, como los terminales móviles.
+    Mayores requerimientos técnicos para su alojamiento en Servidores de pago y, por tanto, costes de alojamiento mayores.
+
+    PRUEBA 1 NOTA 100
+        2. Los programas escritos en JavaScript…
+        X Pueden probarse en cualquier navegador sin necesidad de procesos intermedios.
+        Sólo es compatible con navegadores que sólo soportan el estándar HTML5.
+        JavaScript sólo se ejecuta en el lado servidor.
+        Todas las anteriores son correctas.
+
+        3. De las tres maneras que nos permiten incluir código JavaScript en páginas web ¿cuál de ellas, encierra las sentencias entre etiquetas o tags?
+        X Escribir JavaScript en el propio documento HTML.
+        Definir JavaScript en un archivo externo a nuestro documento.
+        Incluir JavaScript dentro de las propias etiquetas HTML
+        Ninguna de las anteriores es correcta.
+
+        4. ¿Cuál es la mayor ventaja, de enlazar un fichero JavaScript externo?
+        X Este método nos ayuda a simplificar el código HTML del documento.
+        Nos ayuda a crear bloques de JavaScript dentro del código HTML.
+        Definir el bloque de código JavaScript dentro de la cabecera del documento HTML.
+        Ninguna de las anteriores es correcta
+
+        5. Cada etiqueta <script>  sólo puede unir un único fichero, ¿Es posible que en un mismo documento se pueden incluir tantas etiquetas como sean necesarias?
+        Sí
+        X No
+        Cada documento HTML tiene, un límite de etiquetas por documento
+        Todas las anteriores son correctas.
+
+        Test superado
+        Has obtenido un 100 en esta tarea
+
+MÓDULO 2. SINTAXIS DEL LENGUAJE JAVASCRIPT.
+    La sintaxis de JavaScript es muy similar a la de otros lenguajes:
+        No importan las nuevas líneas y los espacios en blanco al igual que sucede en HTML 
+        ya que el propio intérprete del lenguaje los ignora.
+    Es case sensitive: distingue entre las mayúsculas y minúsculas.
+        En contra de otros lenguajes de programación 
+    no se definen el tipo de las variables (var). 
+        En JavaScript nunca sabemos el tipo de datos que va a contener una variable 
+        por lo que una misma variable puede almacenar diferentes tipos de datos.
+    Cada sentencia en JavaScript acaba con el carácter; (punto y coma) 
+        Aunque no en necesario ya que el intérprete lee cada sentencia,
+        aunque no exista este carácter. Por convenio deberíamos incluirlo.
+    Existe la opción de incluir comentarios para añadir información en el código fuente del programa. 
+        Estos comentarios suelen servir para dar información al propietario del código 
+        u otro desarrollador sobre el contenido del bloque de código en JavaScript. 
+        Los comentarios pueden ser de una sola línea o de varias líneas (en bloque).
+
+    Variables
+        Sin las variables sería imposible escribir y crear "programas genéricos", 
+        es decir, códigos que funcionan de la misma manera independientemente 
+        de los valores concretos usados.
+        Las variables en JavaScript se utilizan mediante la palabra reservada ‘var’.
+
+        La palabra ‘var’ solamente se indica al definir por primera vez la variable, 
+            y a eso lo llamamos ‘declarar’ una variable
+
+        El nombre de una variable también se le conoce como identificador 
+            y debe cumplir la siguiente normativa:
+                El identificador únicamente puede estar formado por 
+                    números, 
+                    letras, 
+                    y los símbolos ‘$’ y ‘_’ a lo sumo.
+        El primer carácter del identificador no debe ser un número.
+    Tipos de datos
+        Ya sabemos que todas las variables en JavaScript se crean a través de 
+        la palabra reservada “var” pero dependiendo de los valores que almacenen pueden ser de un tipo u otro.
+        Numéricos
+            Se usan para contener valores numéricos 
+                enteros (llamados integer) 
+                o decimales (llamados float).
+        Cadenas de Texto
+            Se usan para contener 
+                caracteres, 
+                palabras 
+                y/o frases de texto
+        Arrays
+            Un array es una colección de variables, 
+            sin importar los tipos de los que sean cada una. 
+            Los arrays sirven para guardar colecciones de valores, 
+            de manera que serviría para agrupar diferentes variables. 
+            Por ejemplo, tenemos esta sucesión de variables con los días de la semana:
+
+            Ese conjunto de datos no se puede manipular de forma conjunta, 
+            pues cada uno está en una variable diferente. Si los almacenamos en un array, 
+            estarían todos los datos apuntados por una variable que podría recorrerse 
+            con una instrucción for. 
+            Para guardarlos en un array sería: 
+            var dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"] 
+            Este array luego se puede recorrer para, por ejemplo, mostrar sus valores: 
+            for(var i=0;i<dias.length;i++){ alert(dias [i]);}
+
+        Booleanos
+            Las variables de tipo booleano también son llamadas o denominadas 
+            con el nombre de variables de tipo lógico. 
+            Estas variables suelen servir para condiciones o para la programación lógica.
+
+    Operadores
+        Los operadores manipulan los valores de las variables, 
+        realizan cálculos matemáticos 
+        y comparan los valores de diferentes variables.
+        Veamos los diferentes tipos:
+
+            Asignación
+                Sirve para asignar un valor a una variable.
+                ejem 
+                    var num1=3
+
+            Incremento y decremento
+                Ambos operadores sirven para 
+                    decrementar 
+                    o incrementar el valor de una variable.
+                    ejem
+                        var num1=5 
+                        ++num1 
+                        alert(num1) //num1=6
+
+            Lógicos
+                Los operadores lógicos son adecuados para 
+                    realizar condiciones 
+                    y lógica matemática.
+
+            Negación
+                El operador de negación se utiliza para dar el valor contrario a una variable.
+                ejem
+                    var valor1=true 
+                    alert(!valor1) //muestra false
+            Matemáticos
+                Los operadores declarados son: 
+                    suma (+), resta (-), multiplicación (*) y división (/).
+
+            Relacionales
+                Los relacionales: 
+                mayor que (>), 
+                menor que (<), 
+                mayor o igual (>=), 
+                menor o igual (<=), 
+                igual que (==) y 
+                distinto de (!=).
+
+            AND
+                Este operador sirve para combinar los valores de dos variables, 
+                usando lógica matemática y solo dando true si ambos valores son true
+
+            OR
+                Este operador sirve para combinar los valores de dos variables, 
+                usando lógica matemática y solo dando true si alguno de los valores es true. 
+                En otro caso el valor final es false.
+
+    Objetos del navegador
+        Cuando se carga una página en un navegador se crean un número de objetos 
+        característicos del navegador según el contenido de la página.
+    
+        La siguiente figura muestra la jerarquía de clases del Modelo de Objetos del Documento 
+        (Document Object Model - DOM).   
+        window object   
+        location object / history object / document object / navigator object / screen object
+        form object / images object / link object   
+
+        El objeto window 
+            es el de más alto nivel, contiene las propiedades
+            de la ventana y en el supuesto de trabajar con marcos (frames), se
+            genera un objeto window para cada uno. 
+            
+            Ventana del Navegador o del
+            Marco (frame) se representa
+            mediante el objeto window
+
+            EL OBJETO WINDOW
+                Contiene las propiedades básicas de la ventana y sus componentes.
+                Algunas de los datos más elementales son:
+                    • defaultStatus 
+                        contiene el mensaje que aparece en la barra de estado)
+                    • frames 
+                        es una matriz que representa todos los frames de la ventana
+                    • length contiene el número de frames de la ventana
+                    • name contiene el nombre de la ventana
+                    • self hace referencia a la ventana activa
+
+        El objeto document contiene
+            todas las propiedades del documento actual, como son: su color de
+            fondo, enlaces, imágenes, etc.
+
+            Página HTML se representa
+            mediante el objeto document   
+
+        El objeto navigator contiene las propiedades del navegador. 
+        El objeto location contiene las propiedades de la URL activa. 
+        El objeto history contiene las propiedades que representan 
+            a las URL que el usuario ha visitado anteriormente. 
+            Es como una caché. 
+        El objeto screen contiene información referente a la resolución de la pantalla 
+            que muestra la URL.
+    
+        El objeto window también posee una serie de métodos que permiten
+            ejecutar funciones específicas con las ventanas, como por ejemplo,
+                crear ventanas y cuadros de diálogo.
+            También es posible determinar el aspecto que tendrá la nueva
+            ventana del navegador mediante los campos de datos que permiten
+            configurar el menú, la barra de herramientas, la barra de estado, etc.
+            El siguiente ejemplo muestra cómo abrir una nueva ventana desde la
+            ventana actual
+
+            ejemplo
+                <html>
+                    <head>
+                        <title>Ejemplo de creación de ventana</title>
+                        <script language="JavaScript">
+                            function AbrirVentana() {
+                                ventana=open("","nueva","toolbar=no,directories=no,menubar=no, width=280,height=180");
+                                ventana.document.write("<HEAD><TITLE>Nueva Ventana</TITLE></HEAD><BODY>");
+                                ventana.document.write("<FONT SIZE=4 COLOR=red>este es un ejemplo de ventana nueva </FONT><BR/><BR/>");
+                                ventana.document.write("<FORM><INPUT TYPE='button' VALUE='Cerrar' onClick='self.close()'></FORM>");
+                                ventana.document.write("La dirección de la ventana es: "+ventana.location);
+                                ventana.document.write("La resolución de la pantalla es: "+ventana.screen.width+"x"+ventana.screen.height);
+
+                            }
+                        </script>
+                    </head>
+                    <body>
+                        <form>
+                            <input type="button" value="Abrir una ventana"onClick="AbrirVentana();">
+                            <br>
+                        </form>
+                    </body>
+                </html>
+        EL OBJETO LOCATION
+            El objeto location contiene toda la información sobre la URL que se
+            está visualizando,         
+        EL OBJETO SCREEN
+            Permite obtener información sobre la resolución de la pantalla. 
+            En el siguiente ejemplo, se estable el color de fondo de la página de acuerdo
+            a la resolución que soporte la pantalla del usuario.  
+                ejemplo 
+                    <html>
+                        <head>
+                            <title> Ejemplo del Objeto screen</title> 
+                        </head>
+                        <body>
+                            <script language=JavaScript>
+                                switch (window.screen.colorDepth){
+                                case 1: case 4:
+                                    document.bgColor = "white";
+                                    break;
+                                case 8: case 15: case 16:
+                                    document.bgColor = "blue";
+                                    break;
+                                case 24: case 32:
+                                    document.bgColor = "skyblue";
+                                    break;
+                                default:
+                                    document.bgColor = "white";
+                                    }
+                                document.write("Su pantalla soporta color de " + window.screen.colorDepth +" bit");
+                            </script>
+                        </body>
+                    </html>  
+        EL OBJETO DOCUMENT - LA PÁGINA EN SÍ
+            El objeto document hace referencia a determinadas características de la página, como son 
+                su color de fondo (bgColor), 
+                el color de su enlaces,
+            etc.
+            El código que se muestra a continuación carga una imagen
+            dependiendo de la elección que haga el usuario.            
+              ejemplo 
+                <html>
+                    <head>
+                        <title> Ejemplo del Objeto document</title>
+                        <!-- Se muestra un número diferente de imágenes
+                        dependiendo
+                        -- del valor que introduzca el usuario
+                        -- dato: src
+                        -->
+                    </head>
+                    <body>
+                        <IMG NAME="img1" SRC="" BORDER=0 WIDTH=200 HEIGHT=150>
+                        <script language=JavaScript>
+                            var myImages = new Array("usa.gif","canada.gif","jamaica.gif","mexico.gif");
+                            var imgIndex = prompt("Enter a number from 0 to 3");
+                            document.images["img1"].src = myImages[imgIndex];
+                        </script>
+                    </body>
+                </html>  
+            A continuación vemos un ejemplo que permite conectar código 
+            a los eventos de la página web. 
+            El primero de ellos simplemente muestra una ventana de alerta, 
+            mientras que el segundo va modificando de forma aleatoria la imagen que se carga.
+                Ejemplo 1             
+                    <html>
+                        <head>
+                            <title> Ejemplo de Eventos</title>
+                        </head>
+                        <body>
+                            <script language=JavaScript>
+                                function linkSomePage_onclick() {
+                                    alert('Este enlace no lleva a ninguna parte');
+                                    return false;
+                                }
+                            </script>
+                                <A HREF="somepage.html" NAME="linkSomePage">
+                                    Pincha Aquí
+                                </A>
+                            <script language=JavaScript>
+                                    window.document.links[0].onclick = linkSomePage_onclick;
+                            </script>
+                        </body>
+                    </html>
+                Ejemplo 2 
+                    <html>
+                        <head>
+                            <title> Ejemplo del Objeto document</title>
+                        <!-- Se carga una imagen aleatoria
+                        -->
+                            <script language=JavaScript>
+                                var myImages = new Array("usa.gif","canada.gif","jamaica.gif","mexico.gif");
+                                function changeImg(imgNumber) {
+                                    var imgClicked = document.images[imgNumber];
+                                    var newImgNumber = Math.round(Math.random() * 3);
+                                    while (imgClicked.src.indexOf(myImages[newImgNumber])!= -1) {
+                                        newImgNumber = Math.round(Math.random() * 3);
+                                    }
+                                    imgClicked.src = myImages[newImgNumber];
+                                    return false;
+                                }
+                            </script>
+                        </head>
+                        <body>
+                            <A HREF="" NAME="linkImg1"onclick="return changeImg(0)">
+                                <IMG NAME=img1 SRC="usa.gif" BORDER=0 >
+                            </A>
+                            <A HREF=”” NAME="linkImg2" onclick="return changeImg(1)">
+                                <IMG NAME=img1 SRC="mexico.gif" BORDER=0 >
+                            </A>
+                        </body>"
+                    </html>   
+        EL OBJETO HISTORY
+            El objeto history contiene información sobre los enlaces que el usuario
+            ha visitado. Se utiliza principalmente para generar botones de avance
+            y retroceso.
+        EL OBJETO NAVIGATOR
+            El objeto navigator permite obtener información del navegador con el
+            que se está visualizando el documento. El siguiente código JavaScript
+            detecta el navegador que se está utilizando y abre la página específica
+            del mismo.  
+    PRUEBA 
+        CLOSE
+        Test superado
+        Has obtenido un 100 en esta tarea 
+        M2 - Prueba teórica
+            A continuación, te proponemos una pequeña prueba de carácter teórico, para que puedas comprobar si has comprendido los diferentes temas tratados durante el módulo.
+            Se recomienda aprobar esta actividad para alcanzar la superación del curso con un 70% de la nota promedio de las pruebas. Dispones de 3 intentos.
+            Prueba realizada
+            Tu resultado en el test ha sido: 100
+            Has mejorado tu anterior nota de 80.
+            Has superado el test.
+            Tus respuestas
+            1. Los valores que almacena una variable en JavaScript, pueden ser de diferentes tipos. Indica cuál no es de un tipo estándar:
+            Númerico.
+            Cadena de texto.
+            Arrays.
+            X Fracción
+            2. Los siguientes símbolos: mayor que (>), menor que (<), mayor o igual (>=), menor o igual (<=), igual que (==) y distinto de (!=). Son operadores del tipo:
+            X Relacional.
+            Incremento y decremento.
+            Lógico
+            Matemático.
+            3. El objeto de navegador window:
+            X Contiene las propiedades básicas de la ventana y sus componentes.
+            Contiene toda la información sobre la URL que se está visualizando.
+            Hace referencia a determinadas características de la página.
+            Permite obtener información del navegador con el que se está visualizando el documento.
+            4. ¿Cuál de las siguientes líneas no es un comentario válido en JavaScript?
+            //un comentario.
+            ///un comentario.
+            /*un comentario*/.
+            X /& un comentario &/.
+            5. ¿Es obligatorio declarar una variable en Javascript?
+            Siempre
+            X No
+            Solo si es global
+            Solo si es local                  

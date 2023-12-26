@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title> Ejemplo de Eventos</title>
+    </head>
+    <body>
+        <script language=JavaScript>
+            function linkSomePage_onclick() {
+                alert('Este enlace no lleva a ninguna parte');
+                return false;
+            }
+        </script>
+            <A HREF="somepage.html" NAME="linkSomePage">
+                Pincha Aquí
+            </A>
+        <script language=JavaScript>
+                window.document.links[0].onclick = linkSomePage_onclick;
+        </script>
+    </body>
+</html>
