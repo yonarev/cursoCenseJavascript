@@ -258,19 +258,21 @@ MÓDULO 2. SINTAXIS DEL LENGUAJE JAVASCRIPT.
     La sintaxis de JavaScript es muy similar a la de otros lenguajes:
         No importan las nuevas líneas y los espacios en blanco al igual que sucede en HTML 
         ya que el propio intérprete del lenguaje los ignora.
-    Es case sensitive: distingue entre las mayúsculas y minúsculas.
+    Es case sensitive: 
+        distingue entre las mayúsculas y minúsculas.
         En contra de otros lenguajes de programación 
     no se definen el tipo de las variables (var). 
         En JavaScript nunca sabemos el tipo de datos que va a contener una variable 
         por lo que una misma variable puede almacenar diferentes tipos de datos.
-    Cada sentencia en JavaScript acaba con el carácter; (punto y coma) 
+    Sentencias    
+        Cada sentencia en JavaScript acaba con el carácter; (punto y coma) 
         Aunque no en necesario ya que el intérprete lee cada sentencia,
         aunque no exista este carácter. Por convenio deberíamos incluirlo.
-    Existe la opción de incluir comentarios para añadir información en el código fuente del programa. 
+    Comentarios    
+        Existe la opción de incluir comentarios para añadir información en el código fuente del programa. 
         Estos comentarios suelen servir para dar información al propietario del código 
         u otro desarrollador sobre el contenido del bloque de código en JavaScript. 
         Los comentarios pueden ser de una sola línea o de varias líneas (en bloque).
-
     Variables
         Sin las variables sería imposible escribir y crear "programas genéricos", 
         es decir, códigos que funcionan de la misma manera independientemente 
@@ -319,7 +321,6 @@ MÓDULO 2. SINTAXIS DEL LENGUAJE JAVASCRIPT.
             Las variables de tipo booleano también son llamadas o denominadas 
             con el nombre de variables de tipo lógico. 
             Estas variables suelen servir para condiciones o para la programación lógica.
-
     Operadores
         Los operadores manipulan los valores de las variables, 
         realizan cálculos matemáticos 
@@ -371,7 +372,6 @@ MÓDULO 2. SINTAXIS DEL LENGUAJE JAVASCRIPT.
                 Este operador sirve para combinar los valores de dos variables, 
                 usando lógica matemática y solo dando true si alguno de los valores es true. 
                 En otro caso el valor final es false.
-
     Objetos del navegador
         Cuando se carga una página en un navegador se crean un número de objetos 
         característicos del navegador según el contenido de la página.
@@ -603,4 +603,80 @@ MÓDULO 2. SINTAXIS DEL LENGUAJE JAVASCRIPT.
             Siempre
             X No
             Solo si es global
-            Solo si es local                  
+            Solo si es local      
+Módulo 3. Control de flujo.
+    Control de flujo
+        Los códigos que se pueden escribir usando solo variables y operadores, 
+            son una sucesión de instrucciones básicas.
+        Hay programas complejos como 
+            recorrer un array 
+            o establecer una condición 
+                que no pueden ser realizadas simplemente con una sucesión de instrucciones básicas, 
+                es por ello que necesitamos instrucciones de control de flujo 
+                que nos permite elegir líneas para ejecutar dentro de nuestro código 
+                o repetir una serie de líneas un número de veces según una condición.
+        Son instrucciones del tipo:
+            "si se cumple esta condición, hazlo; 
+            si no se cumple, haz esto otro"
+            "repite esto mientras se cumpla esta condición".
+            Utilizar este tipo de estructuras de control de flujo, 
+            convierte a los programas en “inteligentes” 
+            permitiendo tomar decisiones en función del valor de las variables utilizadas.    
+    Funciones
+        Para manejar nuestras diferentes variables 
+        JavaScript hace uso de funciones y propiedades, 
+        que ya se encuentran en el propio lenguaje. 
+        A continuación, veremos las funciones según su utilidad.    
+
+        Funciones para cadenas de texto
+            Length, 
+                halla la longitud de una cadena de texto
+            +, 
+                se emplea para concatenar varias cadenas de texto
+            toUpperCase(),  
+                convierte los caracteres a mayúsculas.
+            toLowerCase(), 
+                convierte los caracteres a minúsculas.
+            charAt(posicion), 
+                halla el carácter de la posición.
+            indexOf(caracter), 
+                halla la posición en la que se encuentra el carácter indicado. 
+                Si no está devuelve -1, y si está varias veces su primera aparición.
+            lastIndexOf(caracter), 
+                halla la última posición en la que se encuentra el carácter. 
+                Si no está devuelve -1.
+            substring(inicio, final), 
+                saca un trozo de una cadena de texto. 
+                El parámetro ‘final’ no es obligatorio. 
+                Si no se pone corta la cadena de texto hasta el final del string.
+        Funciones útiles para arrays
+            length, 
+                halla el número de elementos dentro de un array.
+            concat(), 
+                concatena los elementos de varios arrays.
+            join(separador), 
+                une los elementos de un array para formar una cadena de texto. 
+                Es lo contrario al “split”.
+            pop(), 
+                suprime el último elemento del array 
+                y lo mete en la variable seleccionada.
+            push(), 
+                agrega un elemento (o varios) a nuestro array.
+            shift(),
+                suprime el primer elemento de nuestro array 
+                y lo mete en la variable seleccionada.
+            unshift(), 
+                agrega un elemento (o varios) al principio de nuestro array.
+            reverse(), 
+                coloca los elementos de un array en su orden inverso.  
+        Funciones útiles para números
+            Infinity, 
+                es el valor de infinito cuando las operaciones dan dicho resultado.
+            toFixed(digitos), 
+                fija el número de decimales que tiene que resolver una operación 
+                y redondea si es necesario.          
+    1.1 | Estructura if
+        Es una estructura de condición, 
+        si se comprueba el valor true de esa condición 
+            se entra dentro del bloque de código encerrado entre {…},
+        si no lo cumple no entra y, por tanto, no ejecuta esas líneas                
