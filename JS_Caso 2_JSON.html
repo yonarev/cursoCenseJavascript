@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Ajax</title>
+    <script>
+        function obtenerContenidoXML() {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    // Colocar el contenido XML en el campo de texto
+                    document.getElementById("campoTexto").value = xmlhttp.responseText;
+                }
+            };
+            xmlhttp.open("GET", "ejemploXML.xml", true);
+            xmlhttp.send();
+        }
+    </script>
+</head>
+<body>
+    <h2>Formulario Ajax</h2>
+    <form onsubmit="obtenerContenidoXML(); return false;">
+        <label for="campoTexto">Contenido XML:</label>
+        <input type="text" id="campoTexto" name="campoTexto" readonly>
+        <br>
+        <input type="submit" value="Obtener Contenido XML">
+    </form>
+</body>
+</html>

@@ -1443,3 +1443,363 @@ Módulo 4. Eventos y objetos.
         forms[0].identificador                
 
 Módulo 5. Ajax y JQuery.
+    AJAX
+        Se presentó por vez primera en el artículo 
+        "Ajax: A New Approach to Web Applications" 
+        de Jesse James Garrett en 2005. 
+        Anteriormente no existía un término que hiciera referencia a 
+        un tipo nuevo de programación web que estaba surgiendo.
+
+        Realmente, el término AJAX 
+        es un acrónimo (Asynchronous JavaScript + XML).
+
+        El artículo define AJAX de la siguiente forma:
+            Ajax no es una tecnología en sí mismo. 
+            En realidad, se trata de varias tecnologías independientes 
+            que se unen de formas nuevas y sorprendentes.
+    JQuery 
+        Es una librería JavaScript que nos permite 
+        acceder a los objetos del DOM de manera simple 
+        creada por John Resig (Mozilla).
+
+        Como los desarrollos web son cada vez más complejos, 
+        con funcionalidades de autocompletar, drag & drop, validaciones 
+        y un largo etcétera; 
+        se necesitan algunas herramientas que no nos las hagan desarrollar desde cero. 
+        Esto son las librerías de terceros, entre ellas JQuery, 
+        que están hechas para simplificar y aclarar nuestro código JavaScript. 
+        
+        Adicionalmente nos suelen resolver los problemas de códigos 
+        que funcionen de manera diferente en distintos navegadores.  
+
+        Ventajas:
+            Ahorra muchas líneas de código.
+                Transparenta el soporte de nuestra aplicación para los principales navegadores.
+                Provee un mecanismo para capturar los eventos.
+            Desventajas: [ESTO ESTA MAL]
+                Provee un conglomerado de funciones para hacer animaciones en la página de una manera muy simple.
+                Integra funcionalidades para trabajar con AJAX.
+
+    Ajax: tecnologías implicadas y funcionamiento
+        Tecnologías implicadas
+            El desarrollo de aplicaciones AJAX requiere un conocimiento avanzado 
+            de todas y cada una de las tecnologías y componentes siguientes:
+                XHTML y CSS, crea una presentación basada en estándares.
+                XMLHttpRequest, es el objeto encargado del intercambio asíncrono de información.
+                DOM, para la manipulación e interacción dinámica de la capa de presentación.
+                XML, XSLT y JSON, son las tecnologías que constituyen el intercambio y la manipulación de la información.
+                JavaScript, como unión de todas tecnologías.
+
+                XHTML   CSS             XML     JSON
+
+                    DOM                 XMLHttpRequest
+
+                            JAVASCRIPT
+
+
+        Funcionamiento
+                classic web applicatiob model
+            En los antiguos desarrollos web, 
+            acciones que realice nuestro cliente 
+            sobre la página desencadenaban 
+            llamadas al servidor. 
+            Y una vez el servidor hubiera acabado 
+            con ese tráfico de información devolvía y, 
+            por tanto, recargaba, la página web en nuestro cliente.
+
+            Viendo el esquema, el de la izquierda muestra
+            el modelo antiguo para el desarrollo web. El
+            de la derecha hace entrever el proceso de
+            AJAX.
+            La técnica antigua que permite crear
+            desarrollos web funciona correctamente,
+            pero ralentiza la aplicación y el usuario
+            recibe a cada interacción una petición del
+            servidor que le obliga a recargar la página.
+
+            Esto suele ser bastante molesto para el
+            usuario porque a cada cosa que haga se
+            recarga la página por lo que su experiencia
+            con la aplicación es bastante lenta y tediosa.
+
+            AJAX mejora la interacción del usuario con
+            nuestra web, evita las recargas constantes,
+            ya que el tráfico de información con el
+            servidor se produce en un segundo plano.
+
+            Veamos como es este proceso en AJAX:  
+
+        2.3| Peticiones AJAX y manejo de respuestas  
+            El objeto XMLHTTPRequest:
+                • Objetivo: 
+                    realizar peticiones asíncronas al servidor.
+                • Es la columna vertebral de todos los
+                    desarrollos con AJAX.
+                • Aceptado por todos los clientes web
+                    (Microsoft lo mete en IE 5 como un
+                    objeto ActiveX)
+            PROPIEDADES DEL OBJETO XMLHTTPREQUEST
+                Propiedades Descripción
+                Onereadystaetchange 
+                    Determina qué función será llamada cuando 
+                        la propiedad readyState del objeto cambie
+                            readyState Número entero 
+                            que indica el status de la petición:
+                                0= No iniciada
+                                1= Cargando
+                                2= Cargado
+                                3= Interactivo
+                                4=Completado
+                responseText 
+                    Datos devueltos por el servidor en forma de string de texto
+                responseXML 
+                    Datos devueltos por el servidor expresados como un objeto documento.
+                Status 
+                    Código status HTTP devuelto por el servidor:
+                        200= OK (petición correcta)
+                        204= No content (documento sin datos)
+                        301= Moved permanently (recurso movido)
+                        401 = No authorized (necesita autentificación)
+                        403= Forbidden (rechazada por el servidor)
+                        404= Not found (no existe en servidor)
+                        408= Request Timeout (tiempo sobrepasado)
+                        500= Server Error (error en el servidor)
+                Abort() 
+                    Detiene la petición actual
+                getAllResponseHeaders() 
+                    Devuelve todas las cabeceras como un string
+                getResponseHeaader(x) 
+                    Devuelve el valor de la cabecera x como string
+                Open(“Method”, “URL”,”a”) 
+                    Especifica el método HTTP (por ejemplo, GET o POST9, 
+                    la UR objetivo y si la petición debe ser
+                    manejada asíncronamente 
+                        (Si, a=”True” defecto;
+                        No, a=”false”.)
+                Send (content) 
+                    Envía la petición
+                setRequestHeader( “label”,”Value”) 
+                    Configura un parámetro y valor label=value 
+                    y lo asigna a la cabecera para ser enviado con la
+                    petición.         
+            Ejemplo
+                A continuación vamos a ver un pequeño
+                ejemplo práctico, con una petición GET al
+                servidor para conseguir un fichero llamado
+                ajax.txt. 
+
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <script>
+                        function loadXMLDoc() {
+                            var xmlhttp;
+
+                            if (window.XMLHttpRequest) {
+                                // Code for IE7+, Firefox, Chrome, Opera, Safari
+                                xmlhttp = new XMLHttpRequest();
+                            } else {
+                                // Code for IE6, IE5
+                                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                            }
+
+                            xmlhttp.onreadystatechange = function() {
+                                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                                    document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+                                }
+                            };
+
+                            xmlhttp.open("GET", "ajax.txt", true);
+                            xmlhttp.send();
+                        }
+                    </script>
+                </head>
+                <body>
+                    <div id="myDiv">
+                        <h2>Let AJAX change this text</h2>
+                    </div>
+                    <button type="button" onclick="loadXMLDoc()">Change Content</button>
+                </body>
+                </html>
+
+                Esta página web utiliza JavaScript y AJAX para 
+                cargar dinámicamente el contenido de un archivo llamado 
+                "ajax.txt" en un elemento HTML con el id "myDiv". 
+                Cuando el usuario hace clic en el botón "Change Content", 
+                se activa una función JavaScript que realiza una solicitud al servidor, 
+                recibe el contenido del archivo 
+                y actualiza el elemento "myDiv" con ese contenido, 
+                todo sin recargar la página.
+
+
+                VAMOS A ANALIZAR EL CÓDIGO SUPERIOR
+                El botón de mi html lanza con el evento click 
+                la función loadXMLDoc()
+                    la cual crea una variable llamada xmlhttp.
+                    El primer condicional nos sirve para saber 
+                    si nuestro navegador actual 
+                    puede crear el objeto XMLHttpRequest 
+                    que dependiendo del navegador 
+                    lo creará de una manera u otra.
+                
+                    Abrimos la comunicación GET 
+                    para pedir el fichero ajax.txt y
+                    enviamos la petición 
+                    (se puede enviar tanto asíncrona como
+                    síncronamente dependiendo del valor 
+                    del booleano).
+
+                    La función onreadystatechange() 
+                    se ejecutará a cada cambio de estado 
+                    y cuando la petición sea de 200 
+                    y el readystate de 4
+                        significará que se ha completado con éxito 
+                        (con cualquier otra solución debemos 
+                        tratar el error o los errores 
+                        que hemos visto en
+                        las tablas anteriores).
+
+                    Finalmente seleccionamos el div en cuestión 
+                    (a partir del API del DOM) 
+                    y cambiamos su texto plano 
+                    por el que me ha venido en mi
+                    fichero ajax.txt
+        2.4 | XML vs JSON
+            Si comparamos los dos formatos, 
+            queda claro que uno no es mejor
+            que otro. 
+            Como siempre, de lo que se trata, 
+            es saber 
+                cómo queremos tratar nuestra información 
+                y con qué queremos conectarnos para ese trato.
+            Si estamos hablando de 
+                envío de datos de un extremo a otro 
+                (como en el caso de dos servicios web o para dos servidores independientes)
+                XML parece una elección correcta. 
+                    Aunque, también hay que decir
+                    que en el caso de los servicios web 
+                    han aumentado el uso de REST frente a SOAP, 
+                    servicios que van enfocados al uso de JSON
+            Si son datos que debemos transmitir en una misma aplicación
+            internamente o, aparte, estamos haciendo uso de AJAX, 
+            JSON debería ser nuestra elección sin ningún tipo de dudas 
+            ya que la devolución del objeto de AJAX es fácilmente convertible.        
+
+        Casos prácticos "Ajax"
+            A continuación te proponemos unos casos prácticos, 
+            leelos con atención y desarrolla la actividad presentada. 
+            Así podrás practicar todo lo aprendido.
+
+            JSON
+            Doc: JS_Caso 2_JSON.pdf
+            JS_Caso 2_JSON (1).pdf
+                DESARROLLO
+                    Construya un objeto JSON con datos que
+                    sean válidos para este
+
+                    PhoneBook
+                    + objectid : String
+                    + owner : Contact
+                    + contacts : Contact[]
+
+                    {
+                    "objectid": "valor_del_objectid",
+                    "owner": "valor_del_owner",
+                    "contacts": []
+                    }
+
+                    Contact
+                    + objectid : String
+                    + phone : String
+                    + name : String
+                    + title : String
+                    + age : int
+                    + address : Address
+
+                    {
+                    "objectid": "valor_del_objectid",
+                    "phone": "valor_del_phone",
+                    "name": "valor_del_name",
+                    "title": "valor_del_title",
+                    "age": 25,  // valor del age, asegúrate de usar un número entero
+                    "address": {
+                        "street": "valor_de_la_calle",
+                        "city": "valor_de_la_ciudad",
+                        "country": "valor_del_pais"
+                    }
+                    }
+
+                    Address
+                    + objectid : String
+                    + street : String
+                    + city : String
+                    + state : String
+
+                    {
+                    "objectid": "valor_del_objectid",
+                    "street": "valor_de_la_calle",
+                    "city": "valor_de_la_ciudad",
+                    "state": "valor_del_estado"
+                    }
+
+            Realización de petición AJAX a un XML
+            Doc: JS_Caso 3_AJAXXML.pdf
+                DESARROLLO
+                    Teniendo el archivo XML cuyo nombre es ejemploXML.xml 
+                    y con este contenido:
+                         "Hola holita"
+                    Realizar un formulario con 
+                        un texto 
+                        y un botón de submit que cuando
+                        se envíe una petición por Ajax al servidor 
+                        obtenga el contenido de
+                            este XML y lo ponga en el campo de texto.
+
+                <!DOCTYPE html>
+                    <html lang="es">
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Formulario Ajax</title>
+                        <script>
+                            function obtenerContenidoXML() {
+                                var xmlhttp;
+                                if (window.XMLHttpRequest) {
+                                    xmlhttp = new XMLHttpRequest();
+                                } else {
+                                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                                }
+                                xmlhttp.onreadystatechange = function() {
+                                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                                        // Colocar el contenido XML en el campo de texto
+                                        document.getElementById("campoTexto").value = xmlhttp.responseText;
+                                    }
+                                };
+                                xmlhttp.open("GET", "ejemploXML.xml", true);
+                                xmlhttp.send();
+                            }
+                        </script>
+                    </head>
+                    <body>
+                        <h2>Formulario Ajax</h2>
+                        <form onsubmit="obtenerContenidoXML(); return false;">
+                            <label for="campoTexto">Contenido XML:</label>
+                            <input type="text" id="campoTexto" name="campoTexto" readonly>
+                            <br>
+                            <input type="submit" value="Obtener Contenido XML">
+                        </form>
+                    </body>
+                    </html>            
+
+            Realización de petición AJAX a un JSON
+            Doc: JS_Caso 4_AJAXJSON.pdf
+                DESARROLLO 
+                    Teniendo el archivo JSON cuyo nombre es ejemploJSON.json y con
+                    este contenido: {“name”: “fer”, “country”: “Spain”}
+                    Realizar un formulario con un texto y un botón de submit que cuando
+                    se envíe una petición por Ajax al servidor obtenga el contenido de
+                    este JSON y lo ponga en el campo de texto.
+
+
+            Transformaciones con JSON
+            Doc: JS_Caso 5_TransformacionesJSON.pdf    

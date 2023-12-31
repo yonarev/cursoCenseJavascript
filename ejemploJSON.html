@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Ajax</title>
+    <script>
+        function obtenerContenidoJSON() {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    let respuesta = xmlhttp.responseText
+                    alert("la respuesta es "+respuesta)
+                    console.log("la respuesta es "+respuesta)
+                    var json = JSON.parse(xmlhttp.responseText);
+                    document.getElementById("campoTexto").value = json.name +" & "+ json.country;
+                }
+            };
+            xmlhttp.open("GET", "ejemploJSON.json", true);
+            xmlhttp.send();
+        }
+    </script>
+</head>
+<body>
+    <h2>Formulario Ajax</h2>
+    <form onsubmit="obtenerContenidoJSON(); return false;">
+        <label for="campoTexto">Nombre:</label>
+        <input type="text" id="campoTexto" name="campoTexto" readonly>
+        <br>
+        <input type="submit" value="Obtener Contenido JSON">
+    </form>
+</body>
+</html>
