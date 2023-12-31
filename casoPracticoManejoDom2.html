@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir nuevo párrafo</title>
+</head>
+<body>
+    <p>Este es el primer párrafo.</p>
+    <p>Este es el segundo párrafo.</p>
+    <p>Este es el tercer párrafo.</p>
+    <button onclick="creaNuevoP()">Crea nuevo parrafo</button>
+    <script>
+        function creaNuevoP(){
+            var nuevoParrafo = document.createElement('p');
+            nuevoParrafo.textContent = 'Texto del nuevo párrafo';
+            var body = document.body;
+            body.appendChild(nuevoParrafo);
+        }
+    </script>
+</body>
+</html>

@@ -967,3 +967,479 @@ Módulo 3. Control de flujo.
             reverse() 
 
 Módulo 4. Eventos y objetos.                              
+
+    Eventos
+        Hasta el momento, todos los códigos que hemos visto siguen ejecutándose 
+        sentencia a sentencia, sin interactuar con el usuario.
+        Estos códigos son poco útiles en programas de JavaScript normales ya que 
+        se espera y desea una interacción con los clientes que 
+        estén usando esa página web. 
+        Así,    clickar con el botón del ratón en ciertos apartados, 
+                mover el mismo ratón, 
+                o teclear 
+                pueden ser eventos que se produzcan dentro de nuestra aplicación y se traduzcan en 
+                funciones que se tienen que ejecutar en ciertos momentos en JavaScript.
+
+        El propio lenguaje nos aporta una serie de eventos para medir la interacción del usuario con
+        nuestra aplicación. 
+        Estas funciones creadas en JavaScript son denominadas 
+        “manejadores de eventos” o “event handlers”.
+            Hay tres tipos de manejadores de eventos:
+                Como atributos de las etiquetas HTML.
+                Como funciones en código JavaScript externo.
+                "Semánticos".
+
+        Evento 
+            Descripción 
+            Elementos para los que está definido
+        Onblur 
+            Deseleccionar el elemento 
+            <button>,<input>, <label>,<select>,<textarea>,<body>
+        onchange 
+            Deseleccionar un elemento que se ha modificado
+            <input>,<select>,<textarea>
+        onclick 
+            Pinchar y soltar el ratón 
+            Todos los elementos
+        ondblclick 
+            Pinchar dos veces seguidas con el ratón
+            Todos los elementos
+        onfocus 
+            Seleccionar un elemento 
+            <button>, <input>,<label>, <select>,<textarea>, <body>
+        onkeydown 
+            Pulsar una tecla (sin soltar) 
+            Elementos de formulario y <body>
+        onkeypress 
+            Pulsar una tecla 
+            Elementos de formulario y <body>
+        onkeyup
+            Soltar una tecla pulsada 
+            Elementos de formulario y <body>
+        onload 
+            La página se ha cargado completamente
+            <body>
+        onmousedown 
+            Pulsar (sin soltar) un botón del ratón
+            Todos los elementos
+        onmousemove 
+            Mover el ratón 
+            Todos los elementos
+        onmouseout 
+            El ratón “sale” del elemento (pasa por encima de otro elemento)
+            Todos los elementos
+        onmouseover 
+            El ratón “entra” en elelemento (pasa por encima del elemento)
+            Todos los elementos
+        onmouseup 
+            Soltar el botón que estaba pulsado en el ratón
+            Todos los elementos
+        onreset 
+            Inicializar el formulario (borrar todos sus datos)
+            <form>
+        onresize 
+            Se ha modificado el tamaño de la ventana del navegador
+            <body>
+        onselect 
+            Seleccionar un texto 
+            <input>, <textarea>
+        onsubmit
+            Enviar el formulario 
+            <form>
+        onunload 
+            Se abandona la página (por ejemplo al cerrar el navegador)
+            <body>
+
+
+    Objetos
+        Para trabajar objetos en programación vamos a utilizar JSON 
+        (JavaScript Object Notation) 
+        es un formato para el intercambio de datos por la red, donde usualmente se utilizaba XML.
+        Es un conjunto de datos, comprendidos entre los que 
+            puede medir JavaScript que son 
+                objetos, 
+                Arrays, 
+                cadenas, 
+                booleanos 
+                y números en Javascript.
+        Llegó sobre 2001 gracias al apoyo incondicional de Douglas Crockford. 
+        Yahoo! ayudó a su difusión gracias a la adición de este formato en algunos de 
+            sus servicios web más innovadores. 
+        Google comienza a realizar sus feeds en JSON para 
+            su protocolo web GData a finales del 2006.
+        Es considerado como un lenguaje independiente de formato de los datos 
+        cuya especificación es descrita en RFC4627.   
+
+            {
+                “id” : “0001”,
+                “type” : “donut”,
+                “name” : “Cake”,
+                “image” : “ 
+                    {
+                        “url” : “images/0001.jpg”,
+                        “width” : 200,
+                        “height” : 200
+                    },
+                “thumbnail” : {
+                    “url” : “images/thumbnails/0001.jpg”,
+                    “width” : 32,
+                    “height” : 32
+                    },
+                “dateEntry” : “2010-12-05”
+            } 
+
+    1.1 | Manejadores de eventos como atributos HTML
+        Se incluye en un atributo del propio elemento HTML.
+        En este ejemplo, 
+            cuando nuestro cliente pinche en el botón se ejecutará todo el contenido 
+            que hay dentro del atributo “onclick” que es nuestro manejador de eventos.
+        Este método es quizás el menos práctico ya que impide la
+            reutilización del código JavaScript (que solo se encuentra asignado a ese atributo).
+                
+                <input type=”button” value=”Pinchame” onclick=”alert(‘Gracias’);” />
+
+        También se pueden poner varios manejadores en una misma etiqueta, 
+        pero en diferentes atributos que son los manejadores,
+
+            <div onclick=”alert(‘Has pulsado’);” onmouseover=”alert(‘Has pasado con el ratón’);”>    
+    1.2 | Manejadores de eventos y variable this            
+        La variable “this” es especial en JavaScript. 
+            Se usa para que tome como valor el invocador del evento dentro del manejador. 
+            Es decir, qué componente nos ha invocado a la función    
+
+            <div 
+                id=”contenido” 
+                style=”width:180px; height:80px; border:thin solid silver”
+                onmouseover=”this.style.borderColor=’green’;” 
+                onmouseout=”this.style.borderColor=’red’;”>
+                Sección de contenidos...
+            </div>
+
+            En este código, los manejadores de eventos 
+                “onmouseout” y el “onmouseover” 
+                (que cambian el color del borde de nuestro elemento) 
+                utilizan la variable “this” para hacer referencia al 
+                elemento que nos ha invocado al evento, 
+                este es, el div con id “contenido”. De esta manera, 
+                aunque cambie el id del elemento nuestro código seguirá en funcionamiento.
+    1.3 | Manejadores de eventos como funciones externas   
+        Es mucho mejor para nuestro código y para el reutilizamiento 
+        externalizar todas nuestras sentencias JavaScript en funciones externas.  
+        Es mucho mejor para nuestro código y para el reutilizamiento
+        externalizar 
+            todas nuestras sentencias JavaScript en funciones externas.
+            De ese modo, llamamos en nuestros manejadores de eventos a
+            estas funciones externas.       
+
+                function muestra() {alert(‘Gracias’);}
+                <input type=”button” value=”Pinchame” onclick=”muestra()” />
+
+            En este caso no podemos utilizar la variable “this” con lo que
+            tenemos que pasar el elemento en cuestión que queremos variar.    
+
+                function resaltar(elemento) {switch(elemento.style.borderColor) {… }}
+                <div 
+                    style=”width:150px; height:60px; border:thin solid silver”
+                    onmouseover=”resaltar(this)” 
+                    onmouseout=”resaltar(this)”>
+                    Sección de contenidos...
+                </div>
+    1.4 | Manejadores de eventos semánticos       
+        Esta implementación del manejador se basa en 
+            la externalización del código JavaScript,
+            seleccionando el componente al que queremos agregar un manejador de evento 
+            y desvinculando completamente nuestro código HTML del código JavaScript        
+        Esta implementación del manejador se basa en 
+            la externalización del código JavaScript, 
+            seleccionando el componente al que queremos agregar un manejador de evento 
+            y desvinculando completamente nuestro código HTML del código JavaScript.
+        Es la evolución ideal debido a sus múltiples ventajas entre las que
+        entran 
+            la reutilización del código HTML 
+            desvinculándola de todo funcionamiento mediante JavaScript, 
+            pudiendo reescribir dicho funcionamiento continuamente.    
+
+            // Función externa
+                function muestra() {alert(‘Gracias’);}
+            // Asignar la función externa al elemento
+                document.getElementById(“boton”).onclick = muestra;
+            // Elemento XHTML
+                <input id=”boton” type=”button” value=”Pinchame” />
+
+    Particularidades JSON sobre javaScript
+        Algunas de las particularidades o reglas del formato JSON 
+        a tener en cuenta son:
+            Son duplas nombre-valor 
+            y los nombres van delimitados por comillas, 
+                tanto simples como dobles, aunque pueden aparecer sin ellas.
+        JSON puede representar los seis tipos de valores de JavaScript: 
+            objetos, 
+            Arrays, 
+            números, 
+            cadenas, 
+            booleanos 
+            y null.
+
+        Las fechas no son un tipo de objeto propio.
+        Los números no pueden ir precedidos de ceros a no ser en el caso de notación decimal 
+            (Ejemplo: 0.001).
+        JSON es considerado un lenguaje independiente
+        Sus objetos deben ser considerados como cadenas Javascript, no como objetos nativos.
+
+    1.2 | Transformar JSON a String y String a JSON
+        Muchos de los códigos JavaScript que utilizan JSON para 
+        su funcionamiento o transmisión de información necesitan transformar en 
+        numerosas ocasiones a String (cadenas de texto) y viceversa.
+
+            Hay muchas maneras de hacer eso, antiguamente se utilizaba una
+            función denominada “eval” que realizaba esta transformación 
+            (no sin muchos fallos y desventajas)
+            También se pueden realizar estas transformaciones con bibliotecas
+                de terceros como pueden ser las de 
+                    JQuery y 
+                    Mootools (entre otras).
+            Sin embargo, con la llegada del ECMAScript 5, se ha implementado
+            un nuevo objeto JSON basado en la API programada por el propio
+            Douglas Crockford. Sus métodos más interesantes son 
+                parse() y
+                stringify() 
+
+                parse()  transforma de string a json.
+                stringify() transforma de json a string.       
+
+    El estándar DOM
+        DOM (Document Object Model) 
+        es un agregado de utilidades diseñadas para la manipulación de XML. 
+        Además, DOM también se usa para manipulación de documentos XHTML y HTML.
+        DOM es 
+            una API de funciones que se pueden usar para la manipulación de las páginas XHTML 
+            de forma eficiente y rápida.
+        Antes de usar las funciones, 
+            DOM convierte internamente el XML original en una estructura 
+            fácilmente manejable formada por una jerarquía de nodos. 
+            De esta manera, DOM transforma el XML en una serie de 
+            nodos interconectados en árbol.   
+                <!DOCTYPE html PUBLIC ”-//W3C//DTD XHTML 1.0
+                Transitional//EN” “http://www.w3.org/TR/xhtml1/DTD/
+                xhtml1-transitional.dtd”>
+
+                <html xmlns=”http://www.w3.org/1999/xhtml”>
+                    <head>
+                        <meta http-equiv=”Content-Type” content=”text/html;
+                        charset=iso-8859-1” />
+                        <title>Página sencilla</title>
+                    </head>
+                    <body>
+                        <p>Esta página es <strong>muy sencilla</strong></
+                        p>
+                    </body>
+                </html>
+
+
+        El árbol que se genera 
+            no representa únicamente los contenidos del fichero origen (mediante los nodos del árbol)
+            sino que representa sus relaciones (mediante las ramas del árbol que conectan los nodos).    
+                            
+                            Documento XHTML
+                Elemento HEAD                   Elemento BODY
+        Elemento META   Elemento TITLE              Elemento P
+                        Texto Página sencilla       Texto Esta página es
+                                                    Texto muy sencilla
+
+
+
+    Manipulación de un HTML con DOM JavaScript
+        Una de las principales ventajas del uso del DOM es que 
+        permite a los desarrolladores web disponer de 
+        un control preciso sobre la estructura o forma del documento HTML o XML que están controlando. 
+        Las funciones que usa DOM permiten 
+            añadir, eliminar, modificar y reemplazar 
+                cualquier nodo de cualquier documento sencillamente.        
+
+            Los documentos XML y HTML son convertidos por DOM 
+            en una jerarquía de nodos. 
+            Los nodos pueden ser de diferentes tipos.
+
+                Document: 
+                    nodo raíz de los documentos HTML y XML. 
+                    Todos los demás salen de él.
+                DocumentType: 
+                    nodo que contiene 
+                        la representación del DTD empleado en la página 
+                        (indicado mediante el DOCTYPE).
+                Element: 
+                    contenido definido por un par de etiquetas (o tags) 
+                    de apertura y cierre (<etiqueta>...</etiqueta>) 
+                    o de una etiqueta abreviada que se autocierra (<etiqueta/>). 
+                    Es el único nodo que puede 
+                        tener tanto nodos hijos como atributos.
+                Attr: 
+                    el par nombre-de-atributo/valor.
+                Text: 
+                    el contenido del texto que se halla entre una etiqueta de apertura y una de cierre. 
+                    También guarda el contenido de una sección de tipo CDATA.
+                CDataSection: 
+                    nodo que muestra una sección tipo     <![CDATA[ ]]>.
+                Comment: 
+                    un comentario de XML.
+                Y otros menos usuales:
+                    DocumentFragment, Entity, EntityReference, ProcessingInstruction y Notation.   
+    Selectores y DOM
+        Una vez DOM ha formado automáticamente el árbol completo de nodos de la página, 
+        ya es posible usar sus funciones para 
+            obtener la información sobre los nodos 
+            o controlar su contenido.  
+
+        JavaScript crea el objeto “Node” para tratar las propiedades y métodos necesarios
+        para el procesamiento y manipulación de los documentos.
+        Primeramente, el objeto Node crea las siguientes constantes para la identificación
+        de los tipos de nodos:  
+            • Node.ELEMENT_NODE =1
+            • Node.ATTRIBUTE_NODE = 2
+            • Node.TEXT_NODE = 3
+            • Node.CDATA_SECTION_NODE = 4
+            • Node.ENTITY_REFERENCE_NODE= 5
+            • Node.ENTITY_NODE = 6
+            • Node.PROCESSING_INSTRUCTION_NODE = 7
+            • Node.COMMENT_NODE= 8
+            • Node.DOCUMENT_NODE = 9
+            • Node.DOCUMENT_TYPE_NODE= 10
+            • Node.DOCUMENT_FRAGMENT_NODE = 11
+            • Node.NOTATION_NODE=12    
+
+         Y a partir de este momento, podemos usar cualquier función o propiedad de DOM 
+        para nuestro código JavaScript. 
+
+        Propiedad 
+            / Método Valor devuelto Descripción
+
+        nodeName String 
+            El nombre del nodo (no está definido para algunos tipos de nodo)
+        nodeValue String 
+            El valor del nodo (no está definido para algunos tipos de nodo)
+        nodeType Number 
+            Una de las 12 constantes definidas anteriormente
+        ownerDocument Document 
+            Referencia al documento al que pertenece el nodo
+        firstChild Node 
+            Referencia del primer nodo de la lista childNodes
+        lastChild Node 
+            Referencia del último nodo la lista childNodes
+        childNodes Nodelist 
+            Lita todos los nodos hijo del nodo actual
+        previousSibling Node 
+            Referencia del nodo hermano anterior o null si este nodo es el primer hermano
+        hasChildNodes() Bolean 
+            Devuelve true si el nodo actual tiene uno o más hijos
+        Attributes NameNodeMap 
+            Se emplea con nodos de tipo Element.
+            Contiene objetos tipo Attr que definen todos los atributos del elemento
+        appendChild(nodo) Node 
+            Añade un nuevo nodo al final de la lista childNodes
+        removeChild(nodo) Node 
+            Elimina un nodo de la lista childNodes
+        replaceChild(nuevoNodo,anteriorNodo) Node 
+            Reemplaza el nodo anteriorNodo por el nodo nuevoNodo
+        insertBefore (nuevoNodo,anteriorNodo) Node 
+            Inserta el nodo nuevoNodo antes que la
+            posición del nodo anterior
+            Nodo dentro de la lista childNodes 
+    Caso práctico "Manejo del DOM"
+        A continuación te proponemos un caso práctico, 
+        lee con atención y desarrolla el caso propuesto. Así podrás practicar todo lo aprendido.        
+
+        Parte 1
+            Obtener la lista de elementos de etiqueta <p> y mostrarlos en un
+            alert de JavaScript.
+                <!DOCTYPE html>
+                <html lang="es">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Obtener elementos <p></title>
+                </head>
+                <body>
+
+                    <p>Este es el primer párrafo.</p>
+                    <p>Este es el segundo párrafo.</p>
+                    <p>Este es el tercer párrafo.</p>
+
+                    <script>
+                        var parrafos = document.querySelectorAll('p');
+                        var contenidoParrafos = '';
+                        parrafos.forEach(function(parrafo) {
+                            contenidoParrafos += parrafo.textContent + '\n';
+                        });
+
+                        // Muestra el contenido en un alert
+                        alert(contenidoParrafos);
+                    </script>
+                </body>
+                </html>
+            Parte 2
+                Añadir un nuevo elemento <p> con el texto “Texto del nuevo párrafo”
+                y que sea hijo del body.
+                    <!DOCTYPE html>
+                    <html lang="es">
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Añadir nuevo párrafo</title>
+                    </head>
+                    <body>
+
+                        <p>Este es el primer párrafo.</p>
+                        <p>Este es el segundo párrafo.</p>
+                        <p>Este es el tercer párrafo.</p>
+
+                        <script>
+                            // Crea un nuevo elemento <p>
+                            var nuevoParrafo = document.createElement('p');
+
+                            // Establece el texto del nuevo párrafo
+                            nuevoParrafo.textContent = 'Texto del nuevo párrafo';
+
+                            // Obtén el elemento <body>
+                            var body = document.body;
+
+                            // Añade el nuevo párrafo como hijo del elemento <body>
+                            body.appendChild(nuevoParrafo);
+                        </script>
+
+                    </body>
+                    </html>
+
+    PRUEBA
+        Test superado
+        Has obtenido un 100 en esta tarea
+        1. ¿Cuál de los siguientes no es un tipo de objeto Javascript?
+        String
+        Window
+        X Console
+        Array
+
+        2. El evento que se produce al cargar una página en el navegador es:
+        X onLoad del body
+        onInit de Document
+        onEnter de body.
+        onOpen de Window
+
+        3. Para crear un temporizador en Javascript utilizaremos
+        El método setTemp del objeto Document
+        La función timer de JavaScript.
+        X El método setInterval del objeto Window
+        El método setTimer del objeto Navigator
+
+        4. ¿Qué hace la instrucción document.write()?
+        Envía un documento al servidor
+        X Escribe un texto html dentro de la página
+        Muestra un texto en un cuadro de diálogo
+        Navega a una determinada página
+
+        5. Para obtener desde Javascript una referencia a un objeto HTML a partir de su identificador utilizamos la expresión
+        document.identificador.
+        X document.getElementById.
+        tipo_etiqueta.identificador
+        forms[0].identificador                
+
+Módulo 5. Ajax y JQuery.
