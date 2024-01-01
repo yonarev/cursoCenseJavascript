@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario con Ajax</title>
+</head>
+<body>
+    <h1>Formulario con Ajax</h1>
+    <form id="miFormulario">
+        <label for="contenidoJSON">Contenido JSON:</label>
+        <textarea id="contenidoJSON" rows="10" cols="50" readonly></textarea>
+        <br>
+        <button type="button" onclick="obtenerContenidoJSON()">Obtener JSON</button>
+    </form>
+    <script>
+        function obtenerContenidoJSON() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "ejemploJSON.json", true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var contenidoJSON = JSON.parse(xhr.responseText);
+                    document.getElementById("contenidoJSON").value = JSON.stringify(contenidoJSON, null, 2);
+                }
+            };
+            xhr.send();
+        }
+    </script>
+</body>
+</html>

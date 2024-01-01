@@ -1754,42 +1754,40 @@ Módulo 5. Ajax y JQuery.
                         se envíe una petición por Ajax al servidor 
                         obtenga el contenido de
                             este XML y lo ponga en el campo de texto.
-
-                <!DOCTYPE html>
-                    <html lang="es">
-                    <head>
-                        <meta charset="UTF-8">
-                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                        <title>Formulario Ajax</title>
-                        <script>
-                            function obtenerContenidoXML() {
-                                var xmlhttp;
-                                if (window.XMLHttpRequest) {
-                                    xmlhttp = new XMLHttpRequest();
-                                } else {
-                                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                                }
-                                xmlhttp.onreadystatechange = function() {
-                                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                                        // Colocar el contenido XML en el campo de texto
-                                        document.getElementById("campoTexto").value = xmlhttp.responseText;
+                    <!DOCTYPE html>
+                        <html lang="es">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                            <title>Formulario Ajax</title>
+                            <script>
+                                function obtenerContenidoXML() {
+                                    var xmlhttp;
+                                    if (window.XMLHttpRequest) {
+                                        xmlhttp = new XMLHttpRequest();
+                                    } else {
+                                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
                                     }
-                                };
-                                xmlhttp.open("GET", "ejemploXML.xml", true);
-                                xmlhttp.send();
-                            }
-                        </script>
-                    </head>
-                    <body>
-                        <h2>Formulario Ajax</h2>
-                        <form onsubmit="obtenerContenidoXML(); return false;">
-                            <label for="campoTexto">Contenido XML:</label>
-                            <input type="text" id="campoTexto" name="campoTexto" readonly>
-                            <br>
-                            <input type="submit" value="Obtener Contenido XML">
-                        </form>
-                    </body>
-                    </html>            
+                                    xmlhttp.onreadystatechange = function() {
+                                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                                            document.getElementById("campoTexto").value = xmlhttp.responseText;
+                                        }
+                                    };
+                                    xmlhttp.open("GET", "ejemploXML.xml", true);
+                                    xmlhttp.send();
+                                }
+                            </script>
+                        </head>
+                        <body>
+                            <h2>Formulario Ajax</h2>
+                            <form onsubmit="obtenerContenidoXML(); return false;">
+                                <label for="campoTexto">Contenido XML:</label>
+                                <input type="text" id="campoTexto" name="campoTexto" readonly>
+                                <br>
+                                <input type="submit" value="Obtener Contenido XML">
+                            </form>
+                        </body>
+                        </html>            
 
             Realización de petición AJAX a un JSON
             Doc: JS_Caso 4_AJAXJSON.pdf
@@ -1799,7 +1797,45 @@ Módulo 5. Ajax y JQuery.
                     Realizar un formulario con un texto y un botón de submit que cuando
                     se envíe una petición por Ajax al servidor obtenga el contenido de
                     este JSON y lo ponga en el campo de texto.
-
+                <!DOCTYPE html>
+                    <html lang="es">
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Formulario con Ajax</title>
+                    </head>
+                    <body>
+                        <h1>Formulario con Ajax</h1>
+                        <form id="miFormulario">
+                            <label for="contenidoJSON">Contenido JSON:</label>
+                            <textarea id="contenidoJSON" rows="10" cols="50" readonly></textarea>
+                            <br>
+                            <button type="button" onclick="obtenerContenidoJSON()">Obtener JSON</button>
+                        </form>
+                        <script>
+                            function obtenerContenidoJSON() {
+                                var xhr = new XMLHttpRequest();
+                                xhr.open("GET", "ejemploJSON.json", true);
+                                xhr.onreadystatechange = function() {
+                                    if (xhr.readyState == 4 && xhr.status == 200) {
+                                        var contenidoJSON = JSON.parse(xhr.responseText);
+                                        document.getElementById("contenidoJSON").value = JSON.stringify(contenidoJSON, null, 2);
+                                    }
+                                };
+                                xhr.send();
+                            }
+                        </script>
+                    </body>
+                    </html>
 
             Transformaciones con JSON
-            Doc: JS_Caso 5_TransformacionesJSON.pdf    
+            Doc: JS_Caso 5_TransformacionesJSON.pdf 
+                Douglas Crawford nos dio la posibilidad de transformar un fichero
+                JSON a String y viceversa.
+                Transformaciones con JSON
+                Caso práctico
+                Use las funciones que este genio implementó con un objeto JSON
+                que contenga al menos otro objeto y un array de objetos como
+                propiedades. Muestre por consola el resultado de transformarlo a
+                String y vuelva a transformar ese String a objeto comprobando que
+                mantiene todas sus propiedades.   

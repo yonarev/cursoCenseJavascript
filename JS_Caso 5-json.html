@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Transformation</title>
+    <script type="text/javascript" src="json2.js"></script>
+</head>
+<body>
+<script>
+    // Objeto JSON con al menos otro objeto y un array de objetos como propiedades
+    var miObjetoJSON = {
+        "nombre": "Ejemplo",
+        "otroObjeto": {
+            "propiedad1": "valor1",
+            "propiedad2": "valor2"
+        },
+        "arrayDeObjetos": [
+            {
+                "id": 1,
+                "nombre": "Objeto1"
+            },
+            {
+                "id": 2,
+                "nombre": "Objeto2"
+            }
+        ]
+    };
+    // Mostrar por consola el objeto JSON original
+    console.log("Objeto JSON Original:");
+    console.log(miObjetoJSON);
+    // Transformar el objeto JSON a cadena
+    var jsonString = JSON.stringify(miObjetoJSON);
+    // Mostrar por consola la cadena resultante
+    console.log("\nObjeto JSON como String:");
+    console.log(jsonString);
+    // Transformar la cadena a objeto JSON
+    var objetoDesdeString = JSON.parse(jsonString);
+    // Mostrar por consola el objeto JSON resultante
+    console.log("\nObjeto JSON desde String:");
+    console.log(objetoDesdeString);
+    // Comprobar si mantiene todas sus propiedades
+    console.log("\n¿Mantiene todas sus propiedades?");
+    console.log(JSON.stringify(miObjetoJSON) === JSON.stringify(objetoDesdeString));
+</script>
+
+</body>
+</html>
